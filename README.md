@@ -11,7 +11,7 @@ TaskList es una aplicación iOS desarrollada en SwiftUI que te permite gestionar
 
 ## Capturas de Pantalla
 
-<img src="https://i.postimg.cc/8kL2NLCM/login.png" alt="LoginView" width="220"> <img src="https://i.postimg.cc/15CJQzDD/register.png" alt="RegisterView" width="220"> <img src="https://i.postimg.cc/qq7yb8bS/home.png" alt="HomeView" width="220"> <img src="https://i.postimg.cc/fTGSmnN6/delete.png" alt="DeleteView" width="220">
+<img src="https://i.postimg.cc/8kL2NLCM/login.png" alt="LoginView" width="200"> <img src="https://i.postimg.cc/15CJQzDD/register.png" alt="RegisterView" width="200"> <img src="https://i.postimg.cc/qq7yb8bS/home.png" alt="HomeView" width="200"> <img src="https://i.postimg.cc/fTGSmnN6/delete.png" alt="DeleteView" width="200">
 
 ## Instalación
 
