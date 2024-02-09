@@ -12,6 +12,7 @@ struct RegisterView: View {
     @State private var fullName: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
@@ -29,12 +30,10 @@ struct RegisterView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Create")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.custom("", size: 45))
                             .foregroundStyle(.white)
                         Text("Account")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.custom("", size: 45))
                             .foregroundStyle(.white)
                     }
                     
@@ -48,9 +47,9 @@ struct RegisterView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                         
-                        Rectangle()
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 2)
-                            .foregroundStyle(.white)
+                        Divider()
+                            .frame(height: 2)
+                            .background(.white)
                     }
                     
                     VStack(spacing: 20) {
@@ -58,10 +57,11 @@ struct RegisterView: View {
                             .foregroundColor(.white))
                         .font(.headline)
                         .foregroundColor(.white)
+                        .textInputAutocapitalization(.never)
                         
-                        Rectangle()
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 2)
-                            .foregroundStyle(.white)
+                        Divider()
+                            .frame(height: 2)
+                            .background(.white)
                     }
                     
                     VStack(spacing: 20) {
@@ -69,10 +69,11 @@ struct RegisterView: View {
                             .foregroundColor(.white))
                         .font(.headline)
                         .foregroundColor(.white)
-                        
-                        Rectangle()
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 2)
-                            .foregroundStyle(.white)
+                        .textInputAutocapitalization(.never)
+
+                        Divider()
+                            .frame(height: 2)
+                            .background(.white)
                     }
                 }
                 
@@ -87,7 +88,7 @@ struct RegisterView: View {
                                 try await authViewModel.createUser(withEmail: email, password: password, fullName: fullName)
                             }
                         }, label: {
-                            Text("Login")
+                            Text("Register")
                                 .font(.largeTitle)
                                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                                 .foregroundStyle(.black)
@@ -97,20 +98,22 @@ struct RegisterView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: {
-                    RegisterView()
-                        .navigationBarBackButtonHidden()
+                Button(action: {
+                    dismiss()
                 }, label: {
                     HStack(spacing: 0) {
                         Text("You have an acccount ")
                             .foregroundStyle(.gray)
-                        Text("Login")
+                            .font(.subheadline)
+
+                        Text(" Login")
                             .foregroundStyle(.black)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                            .font(.subheadline)
                     }
                 })
+                .padding(.bottom, 30)
             }
-            .safeAreaPadding(.all)
             .padding(.horizontal)
             
         }

@@ -29,9 +29,23 @@ struct HomeView: View {
     var body: some View {
             VStack {
                 VStack(alignment: .leading) {
-                    Text("Today")
-                        .font(.title)
-                        .fontWeight(.bold)
+                    HStack {
+                        Text("Today")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                         authViewModel.signOut()
+                        }, label: {
+                            Image(systemName: "rectangle.portrait.and.arrow.right")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25)
+                                .foregroundStyle(.black)
+                        })
+                    }
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack(spacing: 15) {
@@ -143,7 +157,6 @@ struct HomeView: View {
                     }
                 }
                 .padding(.bottom, 5)
-                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal)

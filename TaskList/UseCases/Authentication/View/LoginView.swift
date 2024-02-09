@@ -23,13 +23,11 @@ struct LoginView: View {
                         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     
                     VStack(alignment: .leading) {
-                        Text("Hellow")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                        Text("Hello")
+                            .font(.custom("", size: 45))
                             .foregroundStyle(.white)
                         Text("Again!")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                            .font(.custom("", size: 45))
                             .foregroundStyle(.white)
                     }
                     .padding(.horizontal)
@@ -43,21 +41,23 @@ struct LoginView: View {
                                 .foregroundColor(.gray))
                             .font(.headline)
                             .foregroundColor(.gray)
-                            
-                            Rectangle()
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 2)
-                                .foregroundStyle(.gray)
+                            .textInputAutocapitalization(.never)
+
+                            Divider()
+                                .frame(height: 2)
+                                .background(Color.gray.opacity(0.4))
                         }
                         
                         VStack(spacing: 20) {
                             SecureField("", text: $password, prompt: Text("Password")
                                 .foregroundColor(.gray))
                             .font(.headline)
-                            .foregroundColor(.gray)
-                            
-                            Rectangle()
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 2)
-                                .foregroundStyle(.gray)
+                            .foregroundStyle(.gray)
+                            .textInputAutocapitalization(.never)
+
+                            Divider()
+                                .frame(height: 2)
+                                .background(Color.gray.opacity(0.4))
                         }
                     }
                     
@@ -90,14 +90,18 @@ struct LoginView: View {
                         HStack(spacing: 0) {
                             Text("Don't have an acccount? ")
                                 .foregroundStyle(.gray)
-                            Text("Register")
+                                .font(.subheadline)
+
+                            Text(" Register")
                                 .foregroundStyle(.black)
                                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                                .font(.subheadline)
                         }
                     })
                 }
                 .padding(.horizontal)
             }
+            
         }
     }
 }
